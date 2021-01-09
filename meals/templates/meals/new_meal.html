@@ -1,0 +1,12 @@
+{% extends "meals/layout.html" %}
+
+{% block content %}
+    <h1>Add your meal</h1>
+    <form action="{% url 'add_meal' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Add Meal to DB">
+    </form>
+{% endblock %}
+
+

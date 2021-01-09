@@ -1,0 +1,21 @@
+{% extends "meals/layout.html" %}
+
+{% block content %}
+    <h1>Plan your meals</h1>
+    <form action="{% url 'new_meal' %}">
+        <input type="submit" value="Add new Meal">
+    </form>
+    <ul>
+        {% for meal in meals %}
+            <li id="meal_{{ forloop.counter0 }}">
+                {{ meal }}
+                <a href="{% url 'edit_meal' forloop.counter0 %}" alt="edit">
+                    <button>Edit</button>
+                </a>
+                <button>Delete</button>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
